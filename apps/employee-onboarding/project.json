@@ -1,0 +1,75 @@
+{
+  "name": "employee-onboarding",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/employee-onboarding",
+  "prefix": "app",
+  "tags": ["scope:onboarding", "type:app"],
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "defaultConfiguration": "production",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "browser": "apps/employee-onboarding/main.ts",
+        "index": "apps/employee-onboarding/index.html",
+        "tsConfig": "apps/employee-onboarding/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/employee-onboarding/public"
+          },
+          {
+            "glob": "**/*",
+            "input": "apps/employee-onboarding/assets",
+            "output": "/assets"
+          }
+        ],
+        "styles": ["apps/employee-onboarding/styles.css"],
+        "outputPath": "dist/employee-onboarding"
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kB",
+              "maximumError": "1MB"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kB",
+              "maximumError": "8kB"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "@angular/build:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "prebundle": {
+          "exclude": ["employee-management-shared"]
+        }
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "employee-onboarding:build:production"
+        },
+        "development": {
+          "buildTarget": "employee-onboarding:build:development"
+        }
+      }
+    },
+    "test": {
+      "executor": "@angular/build:unit-test"
+    }
+  }
+}

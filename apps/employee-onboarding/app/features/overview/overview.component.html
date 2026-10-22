@@ -1,0 +1,62 @@
+<app-page-header
+  title="Onboarding overview"
+  subtitle="Where every new hire stands across the standard onboarding checklist."
+>
+  <a class="btn btn-primary" routerLink="/hires/new">+ Add hire</a>
+</app-page-header>
+
+<section class="stats" aria-label="Summary">
+  <app-stat-card label="New hires" [value]="stats().totalHires" hint="Tracked in total" />
+  <app-stat-card
+    label="Fully onboarded"
+    [value]="stats().completedHires"
+    hint="All checklist items done"
+  />
+  <app-stat-card
+    label="Average progress"
+    [value]="stats().averagePercent + '%'"
+    hint="Across all hires"
+  />
+  <app-stat-card
+    label="Tasks outstanding"
+    [value]="stats().outstandingTasks"
+    hint="Still to be completed"
+  />
+</section>
+
+<section class="charts">
+  <article class="card panel">
+    <h2 class="card-title">Onboarding status</h2>
+    <app-custom-chart [options]="statusChart()" />
+  </article>
+
+  <article class="card panel">
+    <h2 class="card-title">New hires by department</h2>
+    <app-custom-chart [options]="departmentChart()" />
+  </article>
+</section>
+
+<section class="card panel attention">
+  <h2 class="card-title">Needs attention</h2>
+
+  @if (needsAttention().length === 0) {
+    <p class="empty">Everyone is fully onboarded. Nice work!</p>
+  } @else {
+    <ul>
+      @for (item of needsAttention(); track item.hire.employeeId) {
+        <li>
+          <a [routerLink]="['/checklist', item.hire.employeeId]">
+            <span class="who">
+              <strong>{{ item.hire.employeeName }}</strong>
+              <span class="muted">{{ item.hire.employeeRole }} · {{ item.hire.employeeDepartment }}</span>
+            </span>
+            <span class="meter">
+              <app-progress-bar [value]="item.percent" [label]="item.hire.employeeName + ' progress'" />
+              <span class="muted">{{ item.completed }}/{{ item.total }} tasks</span>
+            </span>
+          </a>
+        </li>
+      }
+    </ul>
+  }
+</section>

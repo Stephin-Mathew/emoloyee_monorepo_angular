@@ -1,0 +1,24 @@
+/* The shared table scrolls inside a flex column, so the card needs a bounded height. */
+.list-card {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 190px);
+  min-height: 420px;
+  padding: 18px;
+}
+
+.filter {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: var(--text-body);
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .list-card {
+    padding: 12px;
+  }
+}
