@@ -1,0 +1,42 @@
+<header class="page-header">
+
+  <span
+    class="table-icon"
+    role="img"
+    aria-label="Employee table"
+  >
+
+    <svg aria-hidden="true">
+      <use href="assets/icons.svg#icon-table"></use>
+    </svg>
+
+  </span>
+
+
+  <div class="search-action-row">
+
+    <app-custom-input
+      variant="search"
+      type="text"
+      [placeholder]="searchPlaceholder"
+      (valueChange)="searchChange.emit($event)"
+    ></app-custom-input>
+
+
+    <div class="header-actions">
+
+      @if (canAdd) {
+        <button
+          type="button"
+          class="add-employee-button"
+          (click)="addEmployee.emit()"
+        >
+          + Add Employee
+        </button>
+      }
+
+    </div>
+
+  </div>
+
+</header>

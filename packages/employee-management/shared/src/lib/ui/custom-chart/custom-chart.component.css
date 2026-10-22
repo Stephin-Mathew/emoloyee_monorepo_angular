@@ -1,0 +1,33 @@
+
+:host {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.chart-container {
+  width: 100%;
+  min-width: 0;
+  color: var(--text);
+}
+
+.custom-chart {
+  width: 100%;
+  height: 360px;
+}
+
+.empty-state {
+  display: grid;
+  place-items: center;
+  min-height: 200px;
+  color: var(--text-muted);
+  background: var(--surface-subtle);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .custom-chart {
+    height: 300px;
+  }
+}

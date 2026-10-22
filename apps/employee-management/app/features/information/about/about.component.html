@@ -1,0 +1,150 @@
+<main class="page-card page-content">
+
+        <h1 class="page-title">About</h1>
+        <p class="page-subtitle">Employee Management · Version 1.0</p>
+
+        <section class="about-section">
+          <h2>What is this application?</h2>
+          <p>
+            Employee Management is a simple tool for keeping track of the people in
+            your organisation. Everyone can look up employee information, while only
+            the users the admin has approved can make changes.
+          </p>
+          <p>
+            It is designed to be easy to use: a table for quick searching and
+            editing, a list for reading details, and one place where the admin
+            controls who is allowed to change records.
+          </p>
+        </section>
+
+        <section class="about-section">
+          <h2>Main features</h2>
+          <ul>
+            @for (feature of features; track feature) {
+              <li>{{ feature }}</li>
+            }
+          </ul>
+        </section>
+
+        <section class="about-section">
+          <h2>Getting started</h2>
+          <ol>
+            @for (step of gettingStarted; track step) {
+              <li>{{ step }}</li>
+            }
+          </ol>
+        </section>
+
+        <section class="about-section">
+          <h2>Pages in the app</h2>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Page</th>
+                  <th>What it does</th>
+                  <th>Available to</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (page of pages; track page.name) {
+                  <tr>
+                    <td class="page-name">{{ page.name }}</td>
+                    <td class="wrap">{{ page.description }}</td>
+                    <td>{{ page.who }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="about-section">
+          <h2>User roles</h2>
+          <p>
+            <strong>Admin</strong> can add, edit and delete employees and decides what
+            every other user is allowed to do.
+          </p>
+          <p>
+            <strong>Normal users</strong> can view employees. Add, edit and delete are
+            available only when the admin turns them on for that user.
+          </p>
+
+          <div class="table-wrapper roles-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Action</th>
+                  <th class="center">Admin</th>
+                  <th class="center">Normal user</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>View, search and sort employees</td>
+                  <td class="center">Yes</td>
+                  <td class="center">Yes</td>
+                </tr>
+                <tr>
+                  <td>Add an employee</td>
+                  <td class="center">Yes</td>
+                  <td class="center">Only if allowed</td>
+                </tr>
+                <tr>
+                  <td>Edit an employee</td>
+                  <td class="center">Yes</td>
+                  <td class="center">Only if allowed</td>
+                </tr>
+                <tr>
+                  <td>Delete an employee</td>
+                  <td class="center">Yes</td>
+                  <td class="center">Only if allowed</td>
+                </tr>
+                <tr>
+                  <td>Manage other users' access</td>
+                  <td class="center">Yes</td>
+                  <td class="center">No</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="about-section">
+          <h2>How your data is stored</h2>
+          <ul>
+            @for (note of dataNotes; track note) {
+              <li>{{ note }}</li>
+            }
+          </ul>
+        </section>
+
+        <section class="about-section">
+          <h2>Built with</h2>
+          <ul class="tag-list">
+            @for (tech of technologies; track tech) {
+              <li>{{ tech }}</li>
+            }
+          </ul>
+        </section>
+
+        <section class="about-section">
+          <h2>Frequently asked questions</h2>
+          @for (faq of faqs; track faq.question) {
+            <details class="faq-item">
+              <summary>{{ faq.question }}</summary>
+              <p>{{ faq.answer }}</p>
+            </details>
+          }
+        </section>
+
+        <section class="about-section disclaimer">
+          <h2>Disclaimers</h2>
+          <ul>
+            @for (item of disclaimers; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        </section>
+
+</main>

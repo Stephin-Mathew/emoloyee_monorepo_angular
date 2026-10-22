@@ -1,0 +1,77 @@
+<section class="employee-list-wrapper">
+
+  <div class="list-header">
+
+    <div class="list-heading">
+      <h2>Employees</h2>
+
+      <p>
+        Select an employee to view their details
+      </p>
+    </div>
+
+    <span class="employee-count">
+      {{ employees().length }} Employees
+    </span>
+
+  </div>
+
+  <div class="employee-list-panel">
+
+    <app-custom-input
+      variant="search"
+      type="text"
+      placeholder="Search by name or ID..."
+      (valueChange)="onSearchChange($event)"
+    ></app-custom-input>
+
+    <div class="employee-items">
+
+      @for (
+        employee of filteredEmployees;
+        track employee.employeeId
+      ) {
+
+        <button
+          type="button"
+          class="employee-item"
+          (click)="selectEmployee(employee.employeeId)"
+        >
+
+          <div class="employee-item-left">
+
+            <span class="employee-avatar">
+              {{ employee.employeeName.charAt(0) }}
+            </span>
+
+            <div class="employee-item-info">
+
+              <span class="employee-name">
+                {{ employee.employeeName }}
+              </span>
+
+              <span class="employee-id">
+                {{ employee.employeeId }}
+              </span>
+
+            </div>
+
+          </div>
+
+         
+
+        </button>
+
+      } @empty {
+
+        <div class="empty-state">
+          No employees found.
+        </div>
+
+      }
+
+    </div>
+
+  </div>
+
+</section>

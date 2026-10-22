@@ -1,0 +1,80 @@
+<div class="auth-page">
+  <section class="auth-intro">
+    <div class="intro-content">
+      <div class="brand-mark">
+        EM
+      </div>
+      <h1>
+        Employee Management
+      </h1>
+      <p class="intro-heading">
+        Manage your workforce with confidence.
+      </p>
+
+      <p class="intro-description">
+        A simple and organized way to manage employees,
+        keep information up to date, and stay productive.
+      </p>
+    </div>
+  </section>
+
+  <section class="auth-form-section">
+    <div class="auth-card">
+      <h2>
+        Welcome back
+      </h2>
+
+      <p class="auth-subtitle">
+        Sign in to continue to your account.
+      </p>
+
+      <form
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+      >
+
+        <app-custom-input
+          label="Username"
+          type="text"
+          inputId="username"
+          placeholder="Enter your username"
+          formControlName="username"
+          [markRequired]="true"
+          [errors]="{ required: 'Username is required.' }"
+        ></app-custom-input>
+
+        <app-custom-input
+          label="Password"
+          type="password"
+          inputId="password"
+          placeholder="Enter your password"
+          formControlName="password"
+          [markRequired]="true"
+          [errors]="{ required: 'Password is required.' }"
+        ></app-custom-input>
+
+
+        @if (loginError) {
+          <p class="login-error">
+            {{ loginError }}
+          </p>
+        }
+
+        <button
+          type="submit"
+          [disabled]="loginForm.invalid"
+        >
+          Login
+        </button>
+      </form>
+
+      <p class="auth-link">
+        Don't have an account?
+        <a routerLink="/signup">
+          Sign up
+        </a>
+      </p>
+
+    </div>
+  </section>
+</div>

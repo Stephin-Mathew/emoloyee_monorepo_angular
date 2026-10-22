@@ -1,0 +1,43 @@
+<main class="employee-panel page-card">
+        <app-table-header
+          (searchChange)="onSearchChange($event)"
+          [canAdd]="canAdd"
+          (addEmployee)="openAddModal()"
+        ></app-table-header>
+
+        <app-custom-table
+          [rows]="displayedEmployees()"
+          [columns]="employeeColumns"
+          [currentPage]="currentPage()"
+          [pageSize]="pageSize()"
+          [totalItems]="totalItems()"
+          [sortField]="sortField()"
+          [sortDirection]="sortDirection()"
+          [loading]="isLoading()"
+          [errorMessage]="loadError()"
+          [canEdit]="canEdit"
+          [canDelete]="canDelete"
+          (pageChange)="onPageChange($event)"
+          (pageSizeChange)="onPageSizeChange($event)"
+          (sortChange)="onSortChange($event)"
+          (rowAction)="onTableAction($event)"
+        ></app-custom-table>
+
+        @if (showEmployeeModal) {
+          <app-employee-modal
+            [employee]="selectedEmployee"
+            [existingEmployees]="allEmployees()"
+            (save)="saveEmployee($event)"
+            (cancel)="closeEmployeeModal()"
+          ></app-employee-modal>
+        }
+
+        @if (showDeleteModal && employeeToDelete) {
+          <app-delete-modal
+            [employee]="employeeToDelete"
+            (confirm)="confirmDelete($event)"
+            (cancel)="cancelDelete()"
+          ></app-delete-modal>
+        }
+
+</main>

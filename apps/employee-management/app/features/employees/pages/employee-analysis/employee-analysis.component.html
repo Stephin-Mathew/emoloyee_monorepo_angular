@@ -1,0 +1,46 @@
+<main class="analysis-panel page-card">
+        <header class="analysis-heading">
+          <h1>Employee Analysis</h1>
+          <p>Overview of your employee distribution.</p>
+        </header>
+
+        <section class="summary-grid">
+          <article class="summary-card">
+            <span class="summary-label">Total Employees</span>
+            <strong class="summary-value">
+              {{ totalEmployees }}
+            </strong>
+          </article>
+
+          <article class="summary-card">
+            <span class="summary-label">Departments</span>
+            <strong class="summary-value">
+              {{ totalDepartments }}
+            </strong>
+          </article>
+        </section>
+
+        <section class="charts-grid">
+          <article class="chart-card">
+            <div class="chart-heading">
+              <h2>Employees by Department</h2>
+              <p>Number of employees in each department</p>
+            </div>
+
+            <app-custom-chart
+              [options]="chartOptions()"
+            ></app-custom-chart>
+          </article>
+
+          <article class="chart-card">
+            <div class="chart-heading">
+              <h2>Age Distribution</h2>
+              <p>Employees by age group</p>
+            </div>
+
+            <app-custom-chart
+              [options]="ageChartOptions()"
+            ></app-custom-chart>
+          </article>
+        </section>
+</main>

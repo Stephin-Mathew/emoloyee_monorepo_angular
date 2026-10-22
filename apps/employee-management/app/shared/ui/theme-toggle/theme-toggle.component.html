@@ -1,0 +1,21 @@
+<label
+  class="theme-toggle"
+  [attr.title]="theme.isDark() ? 'Switch to day theme' : 'Switch to night theme'"
+>
+  <input
+    type="checkbox"
+    role="switch"
+    [checked]="theme.isDark()"
+    [attr.aria-label]="theme.isDark() ? 'Switch to day theme' : 'Switch to night theme'"
+    (change)="theme.toggle()"
+  />
+  <span class="theme-toggle__track" aria-hidden="true">
+    <svg class="theme-toggle__sun">
+      <use href="assets/icons.svg#icon-sun"></use>
+    </svg>
+    <svg class="theme-toggle__moon">
+      <use href="assets/icons.svg#icon-moon"></use>
+    </svg>
+    <span class="theme-toggle__thumb"></span>
+  </span>
+</label>

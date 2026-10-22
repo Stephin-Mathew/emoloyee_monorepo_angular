@@ -1,0 +1,26 @@
+<main class="page-card page-content">
+
+        <h1 class="page-title">Help</h1>
+        <p class="page-subtitle">A quick guide to every part of the application.</p>
+
+        @for (section of sections; track section.title) {
+          <section class="help-section">
+            <div class="help-text">
+              <h2>{{ section.title }}</h2>
+              <ul>
+                @for (point of section.points; track point) {
+                  <li>{{ point }}</li>
+                }
+              </ul>
+            </div>
+
+            <img
+              class="help-image"
+              [src]="section.image"
+              [alt]="section.imageAlt"
+              (error)="hideImage($event)"
+            />
+          </section>
+        }
+
+</main>

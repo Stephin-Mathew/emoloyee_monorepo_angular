@@ -1,0 +1,15 @@
+
+<div class="chart-container">
+  @if (options(); as chartOptions) {
+    <div
+      echarts
+      class="custom-chart"
+      [options]="chartOptions"
+      [autoResize]="true"
+    ></div>
+  } @else {
+    <div class="empty-state">
+      No employee data available.
+    </div>
+  }
+</div>

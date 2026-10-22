@@ -1,0 +1,46 @@
+<main class="page-card page-content">
+        <h1 class="page-title">Access Management</h1>
+        <p class="page-subtitle">
+          Choose which registered users can add, edit or delete employees.
+          Changes are saved automatically.
+        </p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                @for (permission of permissions; track permission.key) {
+                  <th class="check-col">{{ permission.label }}</th>
+                }
+              </tr>
+            </thead>
+
+            <tbody>
+              @for (user of users; track user.username) {
+                <tr>
+                  <td>{{ user.name }}</td>
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.email }}</td>
+                  @for (permission of permissions; track permission.key) {
+                    <td class="check-col">
+                      <app-custom-checkbox
+                        [checked]="isAllowed(user, permission.key)"
+                        [ariaLabel]="permission.label + ' access for ' + user.username"
+                        (checkedChange)="onToggle(user, permission.key, $event)"
+                      />
+                    </td>
+                  }
+                </tr>
+              } @empty {
+                <tr>
+                  <td colspan="6" class="empty-state">No registered users yet.</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <p class="saved-message" aria-live="polite">{{ savedMessage }}</p>
+</main>

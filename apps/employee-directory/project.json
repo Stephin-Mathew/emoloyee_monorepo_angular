@@ -1,0 +1,37 @@
+{
+  "name": "employee-directory",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/employee-directory",
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "defaultConfiguration": "production",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "browser": "apps/employee-directory/main.ts",
+        "index": "apps/employee-directory/index.html",
+        "tsConfig": "apps/employee-directory/tsconfig.app.json",
+        "styles": ["apps/employee-directory/styles.css"],
+        "outputPath": "dist/employee-directory"
+      },
+      "configurations": {
+        "production": { "outputHashing": "all" },
+        "development": { "optimization": false, "sourceMap": true }
+      }
+    },
+    "serve": {
+      "executor": "@angular/build:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "prebundle": {
+          "exclude": ["employee-management-shared"]
+        }
+      },
+      "configurations": {
+        "production": { "buildTarget": "employee-directory:build:production" },
+        "development": { "buildTarget": "employee-directory:build:development" }
+      }
+    }
+  }
+}

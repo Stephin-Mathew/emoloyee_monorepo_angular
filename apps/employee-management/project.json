@@ -1,0 +1,79 @@
+{
+  "name": "employee-management",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/employee-management",
+  "prefix": "app",
+  "generators": {},
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "defaultConfiguration": "production",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "browser": "apps/employee-management/main.ts",
+        "index": "apps/employee-management/index.html",
+        "tsConfig": "apps/employee-management/tsconfig.app.json",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/employee-management/public"
+          },
+          {
+            "glob": "**/*",
+            "input": "apps/employee-management/assets",
+            "output": "/assets"
+          }
+        ],
+        "styles": [
+          "apps/employee-management/styles.css"
+        ],
+        "outputPath": "dist/employee-management"
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kB",
+              "maximumError": "1MB"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kB",
+              "maximumError": "8kB"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "@angular/build:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "prebundle": {
+          "exclude": ["employee-management-shared"]
+        }
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "employee-management:build:production"
+        },
+        "development": {
+          "buildTarget": "employee-management:build:development"
+        }
+      }
+    },
+    "test": {
+      "executor": "@angular/build:unit-test"
+    }
+  }
+}

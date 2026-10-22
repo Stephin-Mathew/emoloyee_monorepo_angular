@@ -1,0 +1,31 @@
+<main class="directory">
+  <header class="hero">
+    <p class="eyebrow">Shared component demo</p>
+    <h1>Employee directory</h1>
+    <p>One small Angular app, powered by the reusable components in <code>employee-management-shared</code>.</p>
+  </header>
+
+  <section class="metrics" aria-label="Directory summary">
+    <article><span>Team members</span><strong>{{ filteredEmployees().length }}</strong></article>
+    <article><span>Departments</span><strong>5</strong></article>
+    <article><span>Open to browse</span><strong>Now</strong></article>
+  </section>
+
+  <section class="content-grid">
+    <article class="card directory-card">
+      <div class="card-heading">
+        <div><h2>People</h2><p>Search, sort, and page through the team.</p></div>
+        <label class="checkbox-label"><app-custom-checkbox [checked]="includeContractors()" ariaLabel="Include contractors" (checkedChange)="onContractorsChange($event)" /> Include contractors</label>
+      </div>
+      <app-custom-input variant="search" placeholder="Search by name, department, or role" ariaLabel="Search employees" (valueChange)="onSearch($event)" />
+      <app-custom-table
+        [rows]="visibleEmployees()" [columns]="columns" [currentPage]="page()" [pageSize]="pageSize()"
+        [totalItems]="filteredEmployees().length" [sortField]="sortField()" [sortDirection]="sortDirection()"
+        (pageChange)="onPageChange($event)" (pageSizeChange)="onPageSizeChange($event)" (sortChange)="onSortChange($event)" />
+    </article>
+    <article class="card chart-card">
+      <div class="card-heading"><div><h2>Department mix</h2><p>Updates with your directory filters.</p></div></div>
+      <app-custom-chart [options]="departmentChart()" />
+    </article>
+  </section>
+</main>

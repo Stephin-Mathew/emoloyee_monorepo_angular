@@ -1,0 +1,103 @@
+<div
+  class="modal-backdrop"
+  (click)="cancel.emit()"
+>
+  <div
+    class="modal-card"
+    role="dialog"
+    aria-modal="true"
+    (click)="$event.stopPropagation()"
+  >
+
+    <!-- Modal Header -->
+    <div class="modal-header">
+      <h3>
+        {{ isEditMode ? 'Edit Employee' : 'Add Employee' }}
+      </h3>
+
+      <button
+        type="button"
+        class="close-button"
+        (click)="cancel.emit()"
+      >
+        ×
+      </button>
+    </div>
+
+
+    <!-- Form -->
+    <form
+      class="form-grid"
+      [formGroup]="employeeForm"
+      (ngSubmit)="submitForm()"
+    >
+
+      <app-custom-input
+        variant="compact"
+        label="Employee ID"
+        type="number"
+        inputId="employeeId"
+        formControlName="employeeId"
+        [error]="formErrors.employeeId"
+      ></app-custom-input>
+
+      <app-custom-input
+        variant="compact"
+        label="Employee Name"
+        type="text"
+        inputId="employeeName"
+        formControlName="employeeName"
+        [error]="formErrors.employeeName"
+      ></app-custom-input>
+
+      <app-custom-input
+        variant="compact"
+        label="Employee Age"
+        type="number"
+        inputId="employeeAge"
+        formControlName="employeeAge"
+        [error]="formErrors.employeeAge"
+      ></app-custom-input>
+
+      <app-custom-input
+        variant="compact"
+        label="Employee Department"
+        type="text"
+        inputId="employeeDepartment"
+        formControlName="employeeDepartment"
+        [error]="formErrors.employeeDepartment"
+      ></app-custom-input>
+
+      <app-custom-input
+        variant="compact"
+        label="Employee Role"
+        type="text"
+        inputId="employeeRole"
+        formControlName="employeeRole"
+        [error]="formErrors.employeeRole"
+      ></app-custom-input>
+
+      <!-- Modal Actions -->
+      <div class="modal-actions">
+
+        <button
+          type="button"
+          class="secondary-button"
+          (click)="cancel.emit()"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          class="primary-button"
+        >
+          {{ isEditMode ? 'Update Employee' : 'Add Employee' }}
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>

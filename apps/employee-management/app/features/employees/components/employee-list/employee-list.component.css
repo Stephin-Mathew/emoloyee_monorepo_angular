@@ -1,0 +1,271 @@
+.employee-list-wrapper {
+  width: 308px;
+  min-width: 308px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.list-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-bottom: 26px;
+}
+
+.list-heading h2 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 28px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+.list-heading p {
+  margin: 5px 0 0;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+
+/* =========================
+   EMPLOYEE COUNT
+   ========================= */
+
+.employee-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 125px;
+  height: 34px;
+
+  padding: 0 14px;
+
+  box-sizing: border-box;
+
+  border-radius: 3px;
+
+  background-color: var(--accent-soft);
+
+  color: var(--accent);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+.employee-list-panel {
+  width: 308px;
+  height: 440px;
+
+  box-sizing: border-box;
+
+  padding: 9px;
+
+  background-color: var(--surface);
+
+  border: 1px solid var(--border-card);
+  border-radius: 3px;
+
+  box-shadow: var(--shadow-card);
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   EMPLOYEE ITEMS CONTAINER
+   ========================= */
+
+.employee-items {
+  height: calc(100% - 52px);
+
+  margin-top: 10px;
+
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+}
+
+
+/* =========================
+   EMPLOYEE ITEM
+   ========================= */
+
+.employee-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  min-height: 66px;
+
+  box-sizing: border-box;
+
+  padding: 8px 11px;
+
+  border: none;
+  border-radius: 3px;
+
+  background-color: var(--surface);
+
+  color: var(--text);
+
+  text-align: left;
+
+  cursor: pointer;
+
+}
+
+.employee-item:hover {
+  background-color: var(--hover-teal);
+}
+
+
+/* =========================
+   LEFT SIDE
+   ========================= */
+
+.employee-item-left {
+  display: flex;
+  align-items: center;
+
+  min-width: 0;
+}
+
+
+/* =========================
+   AVATAR
+   ========================= */
+
+.employee-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  flex: 0 0 40px;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--border-avatar);
+  border-radius: 3px;
+
+  background-color: var(--accent-soft-2);
+
+  color: var(--accent-avatar);
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   NAME + ID
+   ========================= */
+
+.employee-item-info {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  margin-left: 11px;
+}
+
+.employee-name {
+  overflow: hidden;
+
+  color: var(--text-heading);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.employee-id {
+  margin-top: 3px;
+
+  color: var(--text-faint);
+
+  font-size: 13px;
+
+  line-height: 1.2;
+}
+
+
+
+.employee-item:hover {
+  color: var(--accent);
+}
+
+
+/* =========================
+   EMPTY STATE
+   ========================= */
+
+.empty-state {
+  padding: 25px 5px;
+
+  color: var(--text-empty);
+
+  font-size: 14px;
+
+  text-align: center;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 900px) {
+
+  .employee-list-wrapper {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .employee-list-panel {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .list-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .list-heading h2 {
+    font-size: 24px;
+  }
+
+  .employee-list-panel {
+    height: 350px;
+  }
+}

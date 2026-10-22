@@ -1,0 +1,25 @@
+<div [class]="'field field--' + variant">
+  @if (label) {
+    <label [attr.for]="inputId" [class.required]="markRequired">
+      {{ label }}
+    </label>
+  }
+
+  <input
+    #field
+    [id]="inputId"
+    [type]="type"
+    [placeholder]="placeholder"
+    [value]="displayValue"
+    [disabled]="isDisabled"
+    [class.invalid]="invalid"
+    [attr.aria-label]="ariaLabel || (label ? null : placeholder) || null"
+    [attr.aria-invalid]="errorMessage ? 'true' : null"
+    (input)="onInput($event)"
+    (blur)="onBlur()"
+  />
+
+  @if (errorMessage) {
+    <small class="error" role="alert">{{ errorMessage }}</small>
+  }
+</div>

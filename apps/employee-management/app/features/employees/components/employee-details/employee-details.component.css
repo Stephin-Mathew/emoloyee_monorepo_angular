@@ -1,0 +1,195 @@
+.details-panel {
+  width: 682px;
+  min-width: 682px;
+  flex: 0 0 682px;
+  margin-top: 105px;
+}
+
+.details-card {
+  width: 682px;
+  height: 440px;
+  box-sizing: border-box;
+  padding: 30px 31px;
+  background-color: var(--surface);
+  border: 1px solid var(--border-details);
+  border-radius: 3px;
+  box-shadow: var(--shadow-card);
+}
+
+.details-header {
+  padding-bottom: 27px;
+
+  border-bottom: 1px solid var(--border-divider);
+}
+
+
+.employee-profile {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.large-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 76px;
+  height: 76px;
+
+  flex: 0 0 76px;
+
+  box-sizing: border-box;
+
+  border: 1px solid var(--border-avatar);
+  border-radius: 3px;
+
+  background-color: var(--accent-soft-2);
+
+  color: var(--accent-avatar);
+
+  font-size: 27px;
+  font-weight: 500;
+}
+
+
+.employee-heading {
+  margin-left: 17px;
+}
+
+.employee-heading h2 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 26px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+.employee-heading span {
+  display: block;
+
+  margin-top: 6px;
+
+  color: var(--text-muted);
+
+  font-size: 15px;
+}
+
+
+/* =========================
+   DETAILS GRID
+   ========================= */
+
+.details-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 21px;
+
+  margin-top: 28px;
+}
+
+
+
+.detail-item {
+  height: 78px;
+
+  box-sizing: border-box;
+
+  padding: 16px 18px;
+
+  border: 1px solid var(--border-item);
+  border-radius: 3px;
+
+  background-color: var(--surface-subtle);
+}
+
+
+.detail-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--accent);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+.detail-item strong {
+  display: block;
+
+  color: var(--text);
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   EMPTY STATE
+   ========================= */
+
+.empty-details {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.empty-details h2 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 22px;
+}
+
+.empty-details p {
+  margin-top: 8px;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+}
+
+
+@media (max-width: 900px) {
+
+  .details-panel {
+    width: 100%;
+    min-width: 0;
+
+    flex: 1;
+  }
+
+  .details-card {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .details-card {
+    height: auto;
+
+    min-height: 440px;
+
+    padding: 25px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+}

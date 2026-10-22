@@ -1,0 +1,70 @@
+<section class="details-panel">
+  @if (employee(); as employee) {
+    <div class="details-card">
+      <div class="details-header">
+        <div class="employee-profile">
+          <div class="large-avatar">
+            {{ employee.employeeName.charAt(0) }}
+          </div>
+          <div class="employee-heading">
+            <h2>
+              {{ employee.employeeName }}
+            </h2>
+            <span>
+              {{ employee.employeeId }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="details-grid">
+        <div class="detail-item">
+          <span class="detail-label">
+            EMPLOYEE ID
+          </span>
+          <strong>
+            {{ employee.employeeId }}
+          </strong>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-label">
+            AGE
+          </span>
+          <strong>
+            {{ employee.employeeAge }}
+          </strong>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-label">
+            DEPARTMENT
+          </span>
+          <strong>
+            {{ employee.employeeDepartment }}
+          </strong>
+        </div>
+
+
+        <div class="detail-item">
+          <span class="detail-label">
+            ROLE
+          </span>
+          <strong>
+            {{ employee.employeeRole }}
+          </strong>
+        </div>
+      </div>
+    </div>
+
+  } @else {
+    <div class="details-card empty-details">
+      <h2>
+        Select an Employee
+      </h2>
+      <p>
+        Choose an employee from the list to view their details.
+      </p>
+    </div>
+  }
+</section>

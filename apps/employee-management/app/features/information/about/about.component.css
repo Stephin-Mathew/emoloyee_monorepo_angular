@@ -1,0 +1,160 @@
+:host {
+  display: block;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.page-content {
+  padding: 24px 28px;
+  overflow-y: auto;
+}
+
+.page-title {
+  color: var(--text-heading);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.page-subtitle {
+  margin-top: 4px;
+  margin-bottom: 20px;
+  color: var(--text-faint);
+  font-size: 14px;
+}
+
+@media (max-width: 710px) {
+  :host {
+    height: auto;
+    overflow: visible;
+  }
+
+  .page-content {
+    padding: 15px;
+  }
+}
+
+.about-section {
+  padding: 18px 0;
+  border-top: 1px solid var(--divider-soft);
+  max-width: 100%;
+}
+
+.about-section h2 {
+  margin-bottom: 8px;
+  color: var(--text-heading);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.about-section p,
+.about-section li {
+  color: var(--text-body);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.about-section p + p {
+  margin-top: 6px;
+}
+
+.about-section ul,
+.about-section ol {
+  padding-left: 20px;
+}
+
+.disclaimer {
+  padding: 16px 18px;
+  margin-top: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--surface-subtle);
+}
+
+/* ---- tables ---- */
+.table-wrapper {
+  margin-top: 12px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.about-section table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+}
+
+.about-section th,
+.about-section td {
+  padding: 10px 14px;
+  text-align: left;
+  color: var(--text-body);
+  font-size: 14px;
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+.about-section thead th {
+  background-color: var(--head-bg);
+  border-bottom: 1px solid var(--border);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.about-section tbody td {
+  border-bottom: 1px solid var(--border);
+}
+
+.about-section tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.about-section .center {
+  text-align: center;
+}
+
+.page-name {
+  color: var(--text-heading);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.roles-table {
+  max-width: 640px;
+}
+
+/* ---- technology tags ---- */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-left: 0 !important;
+  list-style: none;
+}
+
+.tag-list li {
+  padding: 5px 12px;
+  border: 1px solid var(--border-avatar);
+  border-radius: 999px;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  font-size: 13px;
+}
+
+/* ---- FAQ ---- */
+.faq-item {
+  border-bottom: 1px solid var(--divider-soft);
+}
+
+.faq-item summary {
+  padding: 10px 0;
+  color: var(--text-heading);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq-item p {
+  padding: 0 0 12px;
+}
