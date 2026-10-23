@@ -60,7 +60,14 @@
       "defaultConfiguration": "development",
       "options": {
         "prebundle": {
-          "exclude": ["employee-management-shared"]
+          "exclude": [
+            "@employee-management/data",
+            "@employee-management/shared-ui",
+            "@employee-management/feature-auth",
+            "@employee-management/feature-employees",
+            "@employee-management/feature-analysis",
+            "@employee-management/feature-information"
+          ]
         }
       },
       "configurations": {

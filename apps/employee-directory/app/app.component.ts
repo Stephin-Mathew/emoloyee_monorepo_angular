@@ -9,7 +9,7 @@ import {
   InputValue,
   TableColumn,
   TableSortEvent,
-} from 'employee-management-shared';
+} from '@org/employee-management/shared';
 
 const EMPLOYEES: EmployeeInterface[] = [
   { employeeId: 101, employeeName: 'Ava Patel', employeeAge: 29, employeeDepartment: 'Design', employeeRole: 'Product Designer' },

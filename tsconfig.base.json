@@ -5,6 +5,53 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "preserve",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@employee-management/data": [
+        "./packages/data/src/index.ts"
+      ],
+      "@employee-management/shared-ui": [
+        "./packages/shared-ui/src/index.ts"
+      ],
+      "@employee-management/feature-auth": [
+        "./packages/feature-auth/src/index.ts"
+      ],
+      "@employee-management/feature-employees": [
+        "./packages/feature-employees/src/index.ts"
+      ],
+      "@employee-management/feature-analysis": [
+        "./packages/feature-analysis/src/index.ts"
+      ],
+      "@employee-management/feature-information": [
+        "./packages/feature-information/src/index.ts"
+      ],
+      "@org/employee-management/shared": [
+        "./packages/shared-ui/src/index.ts"
+      ],
+      "@org/employee-management/shared/ui/custom-chart": [
+        "./packages/shared-ui/src/lib/ui/components/custom-chart/custom-chart.component.ts"
+      ],
+      "@org/employee-management/shared/ui/custom-checkbox": [
+        "./packages/shared-ui/src/lib/ui/components/custom-checkbox/custom-checkbox.component.ts"
+      ],
+      "@org/employee-management/shared/ui/custom-input": [
+        "./packages/shared-ui/src/lib/ui/components/custom-input/custom-input.component.ts"
+      ],
+      "@org/employee-management/shared/ui/custom-table": [
+        "./packages/shared-ui/src/lib/ui/components/custom-table/custom-table.component.ts"
+      ],
+      "@org/employee-management/shared/ui/table-header": [
+        "./packages/shared-ui/src/lib/ui/components/table-header/table-header.component.ts"
+      ],
+      "@org/employee-management/shared/ui/page-header": [
+        "./packages/shared-ui/src/lib/ui/shell/page-header/page-header.component.ts"
+      ],
+      "@org/employee-management/shared/ui/sidebar": [
+        "./packages/shared-ui/src/lib/ui/shell/sidebar/sidebar.component.ts"
+      ],
+      "@org/employee-management/shared/ui/theme-toggle": [
+        "./packages/shared-ui/src/lib/ui/shell/theme-toggle/theme-toggle.component.ts"
+      ]
+    }
   }
 }

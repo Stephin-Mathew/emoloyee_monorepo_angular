@@ -1,0 +1,25 @@
+{
+  "name": "shared-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/shared-ui/src",
+  "prefix": "lib",
+  "tags": ["scope:employee-management", "type:ui"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/packages/shared-ui"],
+      "options": {
+        "project": "packages/shared-ui/ng-package.json",
+        "tsConfig": "packages/shared-ui/tsconfig.lib.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/shared-ui/tsconfig.lib.prod.json"
+        },
+        "development": {}
+      },
+      "defaultConfiguration": "production"
+    }
+  }
+}

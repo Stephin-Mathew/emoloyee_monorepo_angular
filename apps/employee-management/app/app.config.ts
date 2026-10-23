@@ -8,25 +8,23 @@ import {
 } from '@angular/core';
 
 import { provideRouter } from '@angular/router';
-import {provideHttpClient} from '@angular/common/http'
+import { provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app.routes';
-import { AuthService } from './core/services/auth.service';
-import { EmployeeService } from './core/services/employee.service';
+import { AuthService, EmployeeService } from '@employee-management/data';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-  provideBrowserGlobalErrorListeners(),
-  provideHttpClient(),
-  provideRouter(routes),
-  provideEchartsCore({ echarts }),
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient(),
+    provideRouter(routes),
+    provideEchartsCore({ echarts }),
+    provideAppInitializer(() => {
+      const authService = inject(AuthService);
+      authService.validateSession();
 
-  provideAppInitializer(() => {
-    const authService = inject(AuthService);
-    authService.validateSession();
-
-    const emplService = inject(EmployeeService);
-    return emplService.initialize();
-  }),
-],
+      const emplService = inject(EmployeeService);
+      return emplService.initialize();
+    }),
+  ],
 };
