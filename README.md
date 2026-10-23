@@ -31,7 +31,7 @@ npx nx serve employee-management
 
 `apps/employee-directory` is a small, no-login directory app that uses the reusable
 input, checkbox, table, chart, and shared employee models from
-`employee-management-shared`.
+`@employee-management/shared-ui` and `@employee-management/data`.
 
 ```bash
 npm run start:directory
@@ -54,24 +54,27 @@ npx nx test employee-management
 ## Workspace layout
 
 - `apps/employee-management/` — Angular application, assets, and project configuration
-- `apps/employee-management/app/core/` — app-wide services and route guards
-- `apps/employee-management/app/features/` — feature-owned pages and components
-- `apps/employee-management/app/features/information/` — About and Help pages
-- `packages/employee-management/shared/` — npm workspace package and buildable Nx library for reusable UI components and shared models
-- `apps/employee-management/app/shared/ui/` — application-specific shell components
+- `apps/employee-management/app/core/` — app-wide route guards and initialization
+- `apps/employee-management/app/features/information/` — app-specific About and Help pages
+- `packages/data/` — shared models and data services
+- `packages/feature-auth/` — login, signup, and access-management features
+- `packages/feature-employees/` — employee pages and components
+- `packages/feature-analysis/` — employee analysis and charts
+- `packages/shared-ui/` — reusable UI components and application shell
 - `apps/employee-management/assets/` — application assets
 - `nx.json` — Nx workspace defaults and task caching
 - `tsconfig.base.json` — shared TypeScript compiler options
 - `package.json` — shared dependencies and root-level commands
 
 Keep code inside its owning feature unless it is genuinely reused. Add future applications
-under `apps/` and workspace-wide packages under `packages/`. Import the shared library
-through its public entry point (`employee-management-shared`) rather than reaching into
-its source folders. npm links workspace packages during the root `npm install`; keep the
-dependency declared in the root `package.json` and do not install the library separately.
+under `apps/` and workspace libraries under `packages/`. Import packages through their
+public entry points (such as `@employee-management/feature-employees`) rather than
+reaching into their source folders. npm links workspace packages during the root
+`npm install`; declare package-to-package dependencies in each package manifest
+and app dependencies in the root `package.json`.
 
-Build the shared library independently with `npx nx build shared`. This generates its
-package build output under `dist/packages/employee-management/shared`.
+Build a package independently with `npx nx build <project-name>`, such as
+`npx nx build shared-ui`. Package build output is generated under `dist/packages/`.
 
 ## Icons
 

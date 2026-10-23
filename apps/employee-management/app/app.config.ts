@@ -11,8 +11,7 @@ import { provideRouter } from '@angular/router';
 import {provideHttpClient} from '@angular/common/http'
 
 import { routes } from './app.routes';
-import { AuthService } from './core/services/auth.service';
-import { EmployeeService } from './core/services/employee.service';
+import { AuthService, EmployeeService } from '@employee-management/data';
 
 export const appConfig: ApplicationConfig = {
   providers: [

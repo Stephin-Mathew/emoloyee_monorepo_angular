@@ -1,14 +1,18 @@
 import { Routes } from '@angular/router';
-import { EmployeeAnalysisComponent } from './features/employees/pages/employee-analysis/employee-analysis.component';
-import { LoginComponent } from './features/auth/login/login.component';
-import { EmployeeTablePageComponent } from './features/employees/pages/employee-table-page/employee-table-page.component';
-import { EmployeeDetailsComponent } from './features/employees/components/employee-details/employee-details.component';
-import { EmployeeListPageComponent } from './features/employees/pages/employee-list-page/employee-list-page.component';
-import { SignupComponent } from './features/auth/signup/signup.component';
+import { EmployeeAnalysisComponent } from '@employee-management/feature-analysis';
+import {
+  AccessManagementComponent,
+  LoginComponent,
+  SignupComponent,
+} from '@employee-management/feature-auth';
+import {
+  EmployeeDetailsComponent,
+  EmployeeLayoutComponent,
+  EmployeeListPageComponent,
+  EmployeeTablePageComponent,
+} from '@employee-management/feature-employees';
 import { HelpComponent } from './features/information/help/help.component';
 import { AboutComponent } from './features/information/about/about.component';
-import { AccessManagementComponent } from './features/access-management/access-management.component';
-import { EmployeeLayoutComponent } from './features/employees/pages/employee-layout/employee-layout.component';
 import { authGuard } from './core/guards/auth.guard';
 import { adminGuard } from './core/guards/admin.guard';
 

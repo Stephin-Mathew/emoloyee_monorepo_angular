@@ -1,0 +1,24 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "feature-analysis",
+  "sourceRoot": "packages/feature-analysis/src",
+  "projectType": "library",
+  "tags": ["scope:employee-management", "type:feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/packages/feature-analysis"],
+      "options": {
+        "project": "packages/feature-analysis/ng-package.json",
+        "tsConfig": "packages/feature-analysis/tsconfig.lib.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/feature-analysis/tsconfig.lib.prod.json"
+        },
+        "development": {}
+      },
+      "defaultConfiguration": "production"
+    }
+  }
+}
