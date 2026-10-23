@@ -25,9 +25,6 @@
       "@employee-management/feature-information": [
         "./packages/feature-information/src/index.ts"
       ],
-      "@employee-management/employee-management-shell": [
-        "./packages/employee-management/src/index.ts"
-      ],
       "@org/employee-management/shared": [
         "./packages/shared-ui/src/index.ts"
       ],

@@ -8,8 +8,7 @@
   },
   "include": [
     "app/**/*.ts",
-    "main.ts",
-    "../../packages/employee-management/src/**/*.ts"
+    "main.ts"
   ],
   "exclude": [
     "app/**/*.spec.ts"
