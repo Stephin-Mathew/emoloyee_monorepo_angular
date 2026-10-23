@@ -65,7 +65,9 @@
             "@employee-management/shared-ui",
             "@employee-management/feature-auth",
             "@employee-management/feature-employees",
-            "@employee-management/feature-analysis"
+            "@employee-management/feature-analysis",
+            "@employee-management/feature-information",
+            "@employee-management/employee-management-shell"
           ]
         }
       },

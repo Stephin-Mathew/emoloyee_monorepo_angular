@@ -54,10 +54,10 @@ npx nx test employee-management
 ## Workspace layout
 
 - `apps/employee-management/` — Angular application, assets, and project configuration
-- `apps/employee-management/app/core/` — app-wide route guards and initialization
-- `apps/employee-management/app/features/information/` — app-specific About and Help pages
+- `packages/employee-management/` — application routes and initialization configuration
+- `packages/feature-auth/` — login, signup, access management, and route guards
+- `packages/feature-information/` — About and Help pages
 - `packages/data/` — shared models and data services
-- `packages/feature-auth/` — login, signup, and access-management features
 - `packages/feature-employees/` — employee pages and components
 - `packages/feature-analysis/` — employee analysis and charts
 - `packages/shared-ui/` — reusable UI components and application shell

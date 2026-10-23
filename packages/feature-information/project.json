@@ -1,0 +1,24 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "feature-information",
+  "sourceRoot": "packages/feature-information/src",
+  "projectType": "library",
+  "tags": ["scope:employee-management", "type:feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/packages/feature-information"],
+      "options": {
+        "project": "packages/feature-information/ng-package.json",
+        "tsConfig": "packages/feature-information/tsconfig.lib.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/feature-information/tsconfig.lib.prod.json"
+        },
+        "development": {}
+      },
+      "defaultConfiguration": "production"
+    }
+  }
+}

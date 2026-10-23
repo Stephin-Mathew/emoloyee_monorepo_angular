@@ -7,7 +7,9 @@
     "resolveJsonModule": true
   },
   "include": [
-    "app/**/*.ts"
+    "app/**/*.ts",
+    "main.ts",
+    "../../packages/employee-management/src/**/*.ts"
   ],
   "exclude": [
     "app/**/*.spec.ts"

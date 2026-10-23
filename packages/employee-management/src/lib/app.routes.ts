@@ -4,6 +4,8 @@ import {
   AccessManagementComponent,
   LoginComponent,
   SignupComponent,
+  adminGuard,
+  authGuard,
 } from '@employee-management/feature-auth';
 import {
   EmployeeDetailsComponent,
@@ -11,10 +13,7 @@ import {
   EmployeeListPageComponent,
   EmployeeTablePageComponent,
 } from '@employee-management/feature-employees';
-import { HelpComponent } from './features/information/help/help.component';
-import { AboutComponent } from './features/information/about/about.component';
-import { authGuard } from './core/guards/auth.guard';
-import { adminGuard } from './core/guards/admin.guard';
+import { AboutComponent, HelpComponent } from '@employee-management/feature-information';
 
 export const routes: Routes = [
   {
